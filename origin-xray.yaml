@@ -5,6 +5,6 @@ Region: "ap-northeast-1"
 ProxyAddress: "http://172.19.5.130:3128"
 Logging:
   LogLevel: "dev"
-#   LogPath: "/var/log/wise/xray-daemon.log"
+  LogPath: "/var/log/wise/xray-daemon.log"
 LocalMode: true
 Version: 2
