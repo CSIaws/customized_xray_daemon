@@ -1,6 +1,6 @@
 Socket:
-  UDPAddress: "0.0.0.0:2000"
-  TCPAddress: "0.0.0.0:2000"
+  UDPAddress: "127.0.0.1:2000"
+  TCPAddress: "127.0.0.1:2000"
 Region: "ap-northeast-1"
 ProxyAddress: "http://172.19.5.130:3128"
 Logging:
