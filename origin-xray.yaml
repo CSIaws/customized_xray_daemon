@@ -4,7 +4,7 @@ Socket:
 Region: "ap-northeast-1"
 ProxyAddress: "http://172.19.5.130:3128"
 Logging:
-  LogLevel: "warn"
+  LogLevel: "dev"
   LogPath: "/var/log/xray-daemon.log"
 LocalMode: true
 Version: 2
