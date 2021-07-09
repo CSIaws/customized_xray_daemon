@@ -16,7 +16,7 @@ Logging:
   # Change the log level, from most verbose to least: dev, debug, info, warn, error, prod (default).
   LogLevel: "warn"
   # Output logs to the specified file path.
-  LogPath: "/var/log/xray-daemon.log"
+  LogPath: "/var/log/wise/xray-daemon.log"
 # Turn on local mode to skip EC2 instance metadata check.
 LocalMode: false
 # Amazon Resource Name (ARN) of the AWS resource running the daemon.
