@@ -1,0 +1,4510 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API document of WisE TTC Order Management Domain",
+    "version": "0.0.3",
+    "title": "WisE TTC Order Management Domain API"
+  },
+  "host": "localhost:9060",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "OM010B03ICMDEndpoint",
+      "description": "OM 010 B 03 ICMD Endpoint"
+    },
+    {
+      "name": "OM010B04ICMDEndpoint",
+      "description": "OM 010 B 04 ICMD Endpoint"
+    },
+    {
+      "name": "OM050S01QueryEndpoint",
+      "description": "OM 050 S 01 Query Endpoint"
+    },
+    {
+      "name": "OM050S02QueryEndpoint",
+      "description": "OM 050 S 02 Query Endpoint"
+    },
+    {
+      "name": "OM070S01QueryEndpoint",
+      "description": "OM 070 S 01 Query Endpoint"
+    },
+    {
+      "name": "OM090S01QueryEndpoint",
+      "description": "OM 090 S 01 Query Endpoint"
+    },
+    {
+      "name": "OmForecastDetailQuery interface",
+      "description": "Om Forecast Detail Query Endpoint"
+    },
+    {
+      "name": "OmForecastQuery interface",
+      "description": "Om Forecast Query Endpoint"
+    },
+    {
+      "name": "OmForecastSpQuery interface",
+      "description": "Om Forecast Sp Query Endpoint"
+    },
+    {
+      "name": "OmOrderCancellationDeliveryQuery interface",
+      "description": "Om Order Cancellation Delivery Query Endpoint"
+    },
+    {
+      "name": "OmOrderCancellationDetailQuery interface",
+      "description": "Om Order Cancellation Detail Query Endpoint"
+    },
+    {
+      "name": "OmOrderCancellationQuery interface",
+      "description": "Om Order Cancellation Query Endpoint"
+    },
+    {
+      "name": "OmOrderPriceRefreshDetailQuery interface",
+      "description": "Om Order Price Refresh Detail Query Endpoint"
+    },
+    {
+      "name": "OmOrderPriceRefreshHistoryQuery interface",
+      "description": "Om Order Price Refresh History Query Endpoint"
+    },
+    {
+      "name": "OmPartnerDetailInfoQuery interface",
+      "description": "Om Partner Detail Info Query Endpoint"
+    },
+    {
+      "name": "OmShippingStatusQuery interface",
+      "description": "Om Shipping Status Query Endpoint"
+    },
+    {
+      "name": "OmTtcOrderDetailQuery interface",
+      "description": "Om Ttc Order Detail Query Endpoint"
+    },
+    {
+      "name": "OmTtcOrderPartsDetailQuery interface",
+      "description": "Om Ttc Order Parts Detail Query Endpoint"
+    },
+    {
+      "name": "OmTtcOrderQuery interface",
+      "description": "Om Ttc Order Query Endpoint"
+    },
+    {
+      "name": "status-query-endpoint",
+      "description": "Status Query Endpoint"
+    }
+  ],
+  "paths": {
+    "/OM010B03I/order_switch": {
+      "get": {
+        "tags": [
+          "OM010B03ICMDEndpoint"
+        ],
+        "summary": "weekly or irregular order switch",
+        "operationId": "orderSwitchUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfstring"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OM010B04I/insert_order_management": {
+      "get": {
+        "tags": [
+          "OM010B04ICMDEndpoint"
+        ],
+        "summary": "Generate sales order to customer for inventory business",
+        "operationId": "insertOrderManagementUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customerOrderId",
+            "in": "query",
+            "description": "customerOrderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfstring"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OM050S01/ev_init_on_load": {
+      "get": {
+        "tags": [
+          "OM050S01QueryEndpoint"
+        ],
+        "summary": "search sales Order List",
+        "operationId": "searchUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "buyer",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "orderDateEnd",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderDateStart",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OM050S01VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OM050S02/ev_init_on_load": {
+      "get": {
+        "tags": [
+          "OM050S02QueryEndpoint"
+        ],
+        "summary": "Query TTC sales order Info ttcOrderId query",
+        "operationId": "queryTtcSaleOrderDetailUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "languageCode",
+            "in": "query",
+            "description": "User language code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "description": "Ttc order type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Page number",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Page size",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "ttcOrderId",
+            "in": "query",
+            "description": "Ttc Order Primary key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OM050S02VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OM050S02/select_firm_info_by_page": {
+      "get": {
+        "tags": [
+          "OM050S02QueryEndpoint"
+        ],
+        "summary": "Query TTC sales order firm info by page",
+        "operationId": "selectFirmInfoByPageUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customer",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerIdArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "customerPartNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerPartNumberEquals",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportCountry",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportCountryArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "importCountry",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "importCountryArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "indexNo",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "languageCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "partDescription",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "partDescriptionEquals",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "supplier",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "supplierIdArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "ttcOrderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "wisePartNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "wisePartNumberEquals",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OM050S02VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OM050S02/select_forecast_info_by_page": {
+      "get": {
+        "tags": [
+          "OM050S02QueryEndpoint"
+        ],
+        "summary": "Query TTC sales order forecast info by page",
+        "operationId": "selectForecastInfoByPageUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customer",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerIdArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "customerPartNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerPartNumberEquals",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportCountry",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportCountryArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "importCountry",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "importCountryArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "indexNo",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "languageCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "partDescription",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "partDescriptionEquals",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "supplier",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "supplierIdArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "ttcOrderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "wisePartNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "wisePartNumberEquals",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OM050S02VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OM050S02/select_shipping_status_by_page": {
+      "get": {
+        "tags": [
+          "OM050S02QueryEndpoint"
+        ],
+        "summary": "Query TTC sales order forecast info by page",
+        "operationId": "selectShippingStatusByPageUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customer",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerIdArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "customerPartNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerPartNumberEquals",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportCountry",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportCountryArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "importCountry",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "importCountryArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "indexNo",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "languageCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "partDescription",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "partDescriptionEquals",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "supplier",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "supplierIdArr",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "ttcOrderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "wisePartNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "wisePartNumberEquals",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OM050S02VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OM070S01/ev_init_on_load": {
+      "get": {
+        "tags": [
+          "OM070S01QueryEndpoint"
+        ],
+        "summary": "he TTC purchase order list",
+        "operationId": "initializeUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "autoRefresh",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "languageCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "subFlag",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "supplierId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ttcOfficeId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OM070S01VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OM090S01/ev_init_on_load": {
+      "get": {
+        "tags": [
+          "OM090S01QueryEndpoint"
+        ],
+        "summary": "List all ttc past modification orders",
+        "operationId": "listAllTtcPastModificationOrdersUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "buyer",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customer",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "initialFlag",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "issuedBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "issuedDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "issuedDateEnd",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "issuedDateStart",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "languageCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modificationReference",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderDescription",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "seller",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "ttcOfficeId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OM090S01VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_forecast/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmForecastQuery interface"
+        ],
+        "summary": "search OmForecast",
+        "operationId": "selectOmForecastByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "customerForecastId",
+            "in": "query",
+            "description": "customerForecastId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmForecast"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_forecast_detail/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmForecastDetailQuery interface"
+        ],
+        "summary": "search OmForecastDetail",
+        "operationId": "selectOmForecastDetailByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "customerForecastDetailId",
+            "in": "query",
+            "description": "customerForecastDetailId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmForecastDetail"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_forecast_sp/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmForecastSpQuery interface"
+        ],
+        "summary": "search OmForecastSp",
+        "operationId": "selectOmForecastSpByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "shippingPlanId",
+            "in": "query",
+            "description": "shippingPlanId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmForecastSp"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_order_cancellation/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmOrderCancellationQuery interface"
+        ],
+        "summary": "search OmOrderCancellation",
+        "operationId": "selectOmOrderCancellationByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "cancellationId",
+            "in": "query",
+            "description": "cancellationId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmOrderCancellation"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_order_cancellation_delivery/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmOrderCancellationDeliveryQuery interface"
+        ],
+        "summary": "search OmOrderCancellationDelivery",
+        "operationId": "selectOmOrderCancellationDeliveryByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "cancellationDeliveryId",
+            "in": "query",
+            "description": "cancellationDeliveryId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmOrderCancellationDelivery"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_order_cancellation_detail/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmOrderCancellationDetailQuery interface"
+        ],
+        "summary": "search OmOrderCancellationDetail",
+        "operationId": "selectOmOrderCancellationDetailByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "cancellationDetailId",
+            "in": "query",
+            "description": "cancellationDetailId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmOrderCancellationDetail"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_order_price_refresh_detail/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmOrderPriceRefreshDetailQuery interface"
+        ],
+        "summary": "search OmOrderPriceRefreshDetail",
+        "operationId": "selectOmOrderPriceRefreshDetailByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "priceRefreshDetailId",
+            "in": "query",
+            "description": "priceRefreshDetailId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmOrderPriceRefreshDetail"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_order_price_refresh_history/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmOrderPriceRefreshHistoryQuery interface"
+        ],
+        "summary": "search OmOrderPriceRefreshHistory",
+        "operationId": "selectOmOrderPriceRefreshHistoryByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "priceRefreshId",
+            "in": "query",
+            "description": "priceRefreshId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmOrderPriceRefreshHistory"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_partner_detail_info/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmPartnerDetailInfoQuery interface"
+        ],
+        "summary": "search OmPartnerDetailInfo",
+        "operationId": "selectOmPartnerDetailInfoByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "partnerDetailId",
+            "in": "query",
+            "description": "partnerDetailId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmPartnerDetailInfo"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_shipping_status/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmShippingStatusQuery interface"
+        ],
+        "summary": "search OmShippingStatus",
+        "operationId": "selectOmShippingStatusByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "shippingStatusId",
+            "in": "query",
+            "description": "shippingStatusId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmShippingStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_ttc_order/search_by_order_no": {
+      "get": {
+        "tags": [
+          "OmTtcOrderQuery interface"
+        ],
+        "summary": "search OmTtcOrder",
+        "operationId": "selectOmTtcOrderByTtcOrderNoUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "ttcOrderNo",
+            "in": "query",
+            "description": "ttcOrderNo",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmTtcOrder"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_ttc_order/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmTtcOrderQuery interface"
+        ],
+        "summary": "search OmTtcOrder",
+        "operationId": "selectOmTtcOrderByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "ttcOrderId",
+            "in": "query",
+            "description": "ttcOrderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmTtcOrder"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_ttc_order/search_order_complex_info": {
+      "get": {
+        "tags": [
+          "OmTtcOrderQuery interface"
+        ],
+        "summary": "search OmOrderComplexInfoVo",
+        "operationId": "getOmOrderComplexInfoUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "customerCode",
+            "in": "query",
+            "description": "customerCode",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "orderNo",
+            "in": "query",
+            "description": "orderNo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "wisePartNo",
+            "in": "query",
+            "description": "wisePartNo",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmOrderComplexInfoVo"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_ttc_order_detail/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmTtcOrderDetailQuery interface"
+        ],
+        "summary": "search OmTtcOrderDetail",
+        "operationId": "selectOmTtcOrderDetailByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "ttcOrderDetailId",
+            "in": "query",
+            "description": "ttcOrderDetailId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmTtcOrderDetail"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_ttc_order_parts_detail/search_by_pk": {
+      "get": {
+        "tags": [
+          "OmTtcOrderPartsDetailQuery interface"
+        ],
+        "summary": "search OmTtcOrderPartsDetail",
+        "operationId": "selectOmTtcOrderPartsDetailByPrimaryKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "ttcOrderPartsDetailId",
+            "in": "query",
+            "description": "ttcOrderPartsDetailId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmTtcOrderPartsDetail"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/om_ttc_order_parts_detail/search_order_parts_detail_info": {
+      "get": {
+        "tags": [
+          "OmTtcOrderPartsDetailQuery interface"
+        ],
+        "summary": "search OmTtcOrderPartsDetail",
+        "operationId": "getOmTtcOrderPartsDetailInfoUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "query",
+            "description": "customerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "orderNo",
+            "in": "query",
+            "description": "orderNo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "wisePartNo",
+            "in": "query",
+            "description": "wisePartNo",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfOmTtcOrderPartsDetail"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/status/{transactionKey}": {
+      "get": {
+        "tags": [
+          "status-query-endpoint"
+        ],
+        "summary": "Query global transaction status by key",
+        "operationId": "findByTransactionKeyUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "transactionKey",
+            "in": "path",
+            "description": "transactionKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "CommonDropDown": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "CommonDropDown"
+    },
+    "DataWrapperOfOM050S01VO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OM050S01VO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOM050S01VO"
+    },
+    "DataWrapperOfOM050S02VO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OM050S02VO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOM050S02VO"
+    },
+    "DataWrapperOfOM070S01VO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OM070S01VO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOM070S01VO"
+    },
+    "DataWrapperOfOM090S01VO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OM090S01VO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOM090S01VO"
+    },
+    "DataWrapperOfOmForecast": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmForecast"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmForecast"
+    },
+    "DataWrapperOfOmForecastDetail": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmForecastDetail"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmForecastDetail"
+    },
+    "DataWrapperOfOmForecastSp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmForecastSp"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmForecastSp"
+    },
+    "DataWrapperOfOmOrderCancellation": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmOrderCancellation"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmOrderCancellation"
+    },
+    "DataWrapperOfOmOrderCancellationDelivery": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmOrderCancellationDelivery"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmOrderCancellationDelivery"
+    },
+    "DataWrapperOfOmOrderCancellationDetail": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmOrderCancellationDetail"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmOrderCancellationDetail"
+    },
+    "DataWrapperOfOmOrderComplexInfoVo": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmOrderComplexInfoVo"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmOrderComplexInfoVo"
+    },
+    "DataWrapperOfOmOrderPriceRefreshDetail": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmOrderPriceRefreshDetail"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmOrderPriceRefreshDetail"
+    },
+    "DataWrapperOfOmOrderPriceRefreshHistory": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmOrderPriceRefreshHistory"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmOrderPriceRefreshHistory"
+    },
+    "DataWrapperOfOmPartnerDetailInfo": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmPartnerDetailInfo"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmPartnerDetailInfo"
+    },
+    "DataWrapperOfOmShippingStatus": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmShippingStatus"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmShippingStatus"
+    },
+    "DataWrapperOfOmTtcOrder": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmTtcOrder"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmTtcOrder"
+    },
+    "DataWrapperOfOmTtcOrderDetail": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmTtcOrderDetail"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmTtcOrderDetail"
+    },
+    "DataWrapperOfOmTtcOrderPartsDetail": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmTtcOrderPartsDetail"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfOmTtcOrderPartsDetail"
+    },
+    "DataWrapperOfStatus": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Status"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfStatus"
+    },
+    "DataWrapperOfstring": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfstring"
+    },
+    "OM050S01VO": {
+      "type": "object",
+      "properties": {
+        "buyerList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OptionBeanList"
+          }
+        },
+        "descriptionList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OptionBeanList"
+          }
+        },
+        "orderTypeList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OptionBeanList"
+          }
+        },
+        "saveFilterDetail": {
+          "$ref": "#/definitions/TiTtcOrderVo"
+        },
+        "statusList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OptionBeanList"
+          }
+        },
+        "ttcOrders": {
+          "$ref": "#/definitions/PageInfoOfTiTtcOrderVo"
+        }
+      },
+      "title": "OM050S01VO"
+    },
+    "OM050S02BasicInfo": {
+      "type": "object",
+      "properties": {
+        "assignedContract": {
+          "type": "string"
+        },
+        "businessType": {
+          "type": "string"
+        },
+        "buyer": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "deliveryTo": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "incotermsCode": {
+          "type": "string"
+        },
+        "incotermsPlace": {
+          "type": "string"
+        },
+        "issuedBy": {
+          "type": "string"
+        },
+        "issuedTime": {
+          "type": "string"
+        },
+        "orderDate": {
+          "type": "string"
+        },
+        "orderMonth": {
+          "type": "string"
+        },
+        "orderReference": {
+          "type": "string"
+        },
+        "orderWeek": {
+          "type": "string"
+        },
+        "paymentTerms": {
+          "type": "string"
+        },
+        "projectCode": {
+          "type": "string"
+        },
+        "projectSOPDate": {
+          "type": "string"
+        },
+        "reasonforSpot": {
+          "type": "string"
+        },
+        "reasonforUrgent": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "requestedDeliveryDate": {
+          "type": "string"
+        },
+        "sectionCode": {
+          "type": "string"
+        },
+        "shipmentMode": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "trialEventText": {
+          "type": "string"
+        }
+      },
+      "title": "OM050S02BasicInfo"
+    },
+    "OM050S02FirmInfo": {
+      "type": "object",
+      "properties": {
+        "confirmedQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractPartId": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "customerPartNumber": {
+          "type": "string"
+        },
+        "deliveryLot": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "expFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exportCountry": {
+          "type": "string"
+        },
+        "exportCountryDescription": {
+          "type": "string"
+        },
+        "fc10Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc11Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc12Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc13Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc14Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc15Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc16Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc17Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc18Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc19Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc1Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc1ShippingStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM050S02ShippingStatus"
+          }
+        },
+        "fc20Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc2Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc2ShippingStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM050S02ShippingStatus"
+          }
+        },
+        "fc3Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc3ShippingStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM050S02ShippingStatus"
+          }
+        },
+        "fc4Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc4ShippingStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM050S02ShippingStatus"
+          }
+        },
+        "fc5Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc5ShippingStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM050S02ShippingStatus"
+          }
+        },
+        "fc6Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc6ShippingStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM050S02ShippingStatus"
+          }
+        },
+        "fc7Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc8Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fc9Qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firmQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "impHSCode": {
+          "type": "string"
+        },
+        "importCountry": {
+          "type": "string"
+        },
+        "importCountryDescription": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nextTtcOrderId": {
+          "type": "string"
+        },
+        "notConfirmedQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderLot": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "partDescription": {
+          "type": "string"
+        },
+        "remainingQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shippingStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM050S02ShippingStatus"
+          }
+        },
+        "supplierId": {
+          "type": "string"
+        },
+        "supplierName": {
+          "type": "string"
+        },
+        "totalActualQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "totalOrderQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalOutstanding": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ttcOrderDetailId": {
+          "type": "string"
+        },
+        "ttcOrderPartsDetailId": {
+          "type": "string"
+        },
+        "unitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "waitingInputQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        }
+      },
+      "title": "OM050S02FirmInfo"
+    },
+    "OM050S02ShippingStatus": {
+      "type": "object",
+      "properties": {
+        "actualQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractPartId": {
+          "type": "string"
+        },
+        "customerForecastDetailId": {
+          "type": "string"
+        },
+        "customerForecastId": {
+          "type": "string"
+        },
+        "deliveryToCustomerDate": {
+          "type": "string"
+        },
+        "eta": {
+          "type": "string"
+        },
+        "etaCustomer": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "etaDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "etd": {
+          "type": "string"
+        },
+        "etdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "forecastDeliveryQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "forecastNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "planQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shipment": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shipmentMode": {
+          "type": "string"
+        },
+        "shippingStatusType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shippingStatusTypeDesc": {
+          "type": "string"
+        }
+      },
+      "title": "OM050S02ShippingStatus"
+    },
+    "OM050S02VO": {
+      "type": "object",
+      "properties": {
+        "basicInfo": {
+          "$ref": "#/definitions/OM050S02BasicInfo"
+        },
+        "customerDropdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "exportCountryDropdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "firmInfo": {
+          "$ref": "#/definitions/PageInfoOfOM050S02FirmInfo"
+        },
+        "forecastInfo": {
+          "$ref": "#/definitions/PageInfoOfOM050S02FirmInfo"
+        },
+        "importCountryDropdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "orderInfo": {
+          "$ref": "#/definitions/PageInfoOfOM050S02FirmInfo"
+        },
+        "orderType": {
+          "type": "string"
+        },
+        "shippingStatus": {
+          "$ref": "#/definitions/PageInfoOfOM050S02FirmInfo"
+        },
+        "status": {
+          "type": "string"
+        },
+        "supplierDropdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "ttcOrderNo": {
+          "type": "string"
+        }
+      },
+      "title": "OM050S02VO"
+    },
+    "OM070OrderVO": {
+      "type": "object",
+      "properties": {
+        "contractId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "issuedTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "orderDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "orderNumber": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "string"
+        },
+        "seller": {
+          "type": "string"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "sellerType": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "OM070OrderVO"
+    },
+    "OM070S01VO": {
+      "type": "object",
+      "properties": {
+        "dataList": {
+          "$ref": "#/definitions/PageInfoOfOM070OrderVO"
+        },
+        "descriptionDropdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM070OrderVO"
+          }
+        },
+        "orderTypeDropdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM070OrderVO"
+          }
+        },
+        "sellerDropdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM070OrderVO"
+          }
+        },
+        "statusDropdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM070OrderVO"
+          }
+        }
+      },
+      "title": "OM070S01VO"
+    },
+    "OM090S01QueryPageParamModel": {
+      "type": "object",
+      "properties": {
+        "buyer": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "initialFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "issuedBy": {
+          "type": "string"
+        },
+        "issuedDate": {
+          "type": "string"
+        },
+        "issuedDateEnd": {
+          "type": "string"
+        },
+        "issuedDateStart": {
+          "type": "string"
+        },
+        "languageCode": {
+          "type": "string"
+        },
+        "modificationReference": {
+          "type": "string"
+        },
+        "orderDescription": {
+          "type": "string"
+        },
+        "orderNumber": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "seller": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ttcOfficeId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "title": "OM090S01QueryPageParamModel"
+    },
+    "OM090S01TableModel": {
+      "type": "object",
+      "properties": {
+        "buyer": {
+          "type": "string"
+        },
+        "buyerId": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "issuedBy": {
+          "type": "string"
+        },
+        "issuedDate": {
+          "type": "string"
+        },
+        "issuedDateEnd": {
+          "type": "string"
+        },
+        "issuedDateStart": {
+          "type": "string"
+        },
+        "modificationReference": {
+          "type": "string"
+        },
+        "orderDescription": {
+          "type": "string"
+        },
+        "orderNumber": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "seller": {
+          "type": "string"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "OM090S01TableModel"
+    },
+    "OM090S01VO": {
+      "type": "object",
+      "properties": {
+        "buyerDropDown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "customerDropDown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "issuedDropDown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "orderTypeDropDown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "saveFilterDetail": {
+          "$ref": "#/definitions/OM090S01QueryPageParamModel"
+        },
+        "sellerDropDown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "statusDropDown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonDropDown"
+          }
+        },
+        "tableData": {
+          "$ref": "#/definitions/PageInfoOfOM090S01TableModel"
+        }
+      },
+      "title": "OM090S01VO"
+    },
+    "OmForecast": {
+      "type": "object",
+      "properties": {
+        "buyerId": {
+          "type": "string"
+        },
+        "buyerSectionId": {
+          "type": "string"
+        },
+        "buyerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "customerForecastId": {
+          "type": "string"
+        },
+        "customerForecastNo": {
+          "type": "string"
+        },
+        "dateFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fieldMap": {
+          "type": "object"
+        },
+        "forecastType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "issuedBy": {
+          "type": "string"
+        },
+        "issuedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "keyColumn": {
+          "type": "string"
+        },
+        "orderMonth": {
+          "type": "string"
+        },
+        "orderWeek": {
+          "type": "string"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "sellerSectionId": {
+          "type": "string"
+        },
+        "sellerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OmForecast"
+    },
+    "OmForecastDetail": {
+      "type": "object",
+      "properties": {
+        "contractPartId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "customerForecastDetailId": {
+          "type": "string"
+        },
+        "customerForecastId": {
+          "type": "string"
+        },
+        "customerPartBackNo": {
+          "type": "string"
+        },
+        "customerPartDescription": {
+          "type": "string"
+        },
+        "customerPartNo": {
+          "type": "string"
+        },
+        "dateFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exportCountry": {
+          "type": "string"
+        },
+        "fieldMap": {
+          "type": "object"
+        },
+        "forecastNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "forecastQty": {
+          "type": "number"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "keyColumn": {
+          "type": "string"
+        },
+        "orderLot": {
+          "type": "number"
+        },
+        "revisedForecastQty": {
+          "type": "number"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OmForecastDetail"
+    },
+    "OmForecastSp": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "customerForecastDetailId": {
+          "type": "string"
+        },
+        "deliveryQty": {
+          "type": "number"
+        },
+        "deliveryToCustomerDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "eta": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "etd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "shipmentMode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shippingPlanId": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OmForecastSp"
+    },
+    "OmOrderCancellation": {
+      "type": "object",
+      "properties": {
+        "approvedBy": {
+          "type": "string"
+        },
+        "approvedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "cancellationId": {
+          "type": "string"
+        },
+        "cancellationReason": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cancellationReference": {
+          "type": "string"
+        },
+        "cancellationRemarks": {
+          "type": "string"
+        },
+        "cancellationRequestNo": {
+          "type": "string"
+        },
+        "cancellationType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cancelledAmount": {
+          "type": "number"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerOrderId": {
+          "type": "string"
+        },
+        "customerOrderNo": {
+          "type": "string"
+        },
+        "importCountry": {
+          "type": "string"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "issuedBy": {
+          "type": "string"
+        },
+        "issuedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "originalSalesAmount": {
+          "type": "number"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ttcOfficeId": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OmOrderCancellation"
+    },
+    "OmOrderCancellationDelivery": {
+      "type": "object",
+      "properties": {
+        "cancellationDeliveryId": {
+          "type": "string"
+        },
+        "cancellationDetailId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "deliveryDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "newDeliveryQty": {
+          "type": "number"
+        },
+        "originalDeliveryQty": {
+          "type": "number"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OmOrderCancellationDelivery"
+    },
+    "OmOrderCancellationDetail": {
+      "type": "object",
+      "properties": {
+        "cancellationDetailId": {
+          "type": "string"
+        },
+        "cancellationId": {
+          "type": "string"
+        },
+        "cancelledQty": {
+          "type": "number"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "orderLot": {
+          "type": "number"
+        },
+        "originalOrderQty": {
+          "type": "number"
+        },
+        "partDescription": {
+          "type": "string"
+        },
+        "supplierId": {
+          "type": "string"
+        },
+        "ttcOrderDetailId": {
+          "type": "string"
+        },
+        "ttcOrderId": {
+          "type": "string"
+        },
+        "ttcOrderNo": {
+          "type": "string"
+        },
+        "unitPrice": {
+          "type": "number"
+        },
+        "uomCode": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "wisePartNo": {
+          "type": "string"
+        }
+      },
+      "title": "OmOrderCancellationDetail"
+    },
+    "OmOrderComplexInfoVo": {
+      "type": "object",
+      "properties": {
+        "buyerId": {
+          "type": "string"
+        },
+        "buyerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractDescription": {
+          "type": "string"
+        },
+        "contractId": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerOrderDetailId": {
+          "type": "string"
+        },
+        "customerOrderId": {
+          "type": "string"
+        },
+        "customerOrderNo": {
+          "type": "string"
+        },
+        "customerOrderReference": {
+          "type": "string"
+        },
+        "customerPartDescription": {
+          "type": "string"
+        },
+        "customerPartNo": {
+          "type": "string"
+        },
+        "preTtcOrderId": {
+          "type": "string"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "sellerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "supplierPartNo": {
+          "type": "string"
+        },
+        "ttcOrderDetailId": {
+          "type": "string"
+        },
+        "ttcOrderId": {
+          "type": "string"
+        },
+        "ttcOrderNo": {
+          "type": "string"
+        },
+        "uom": {
+          "type": "string"
+        }
+      },
+      "title": "OmOrderComplexInfoVo"
+    },
+    "OmOrderPriceRefreshDetail": {
+      "type": "object",
+      "properties": {
+        "contractPartId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "firmQty": {
+          "type": "number"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "newUnitPrice": {
+          "type": "number"
+        },
+        "originalUnitPrice": {
+          "type": "number"
+        },
+        "priceRefreshDetailId": {
+          "type": "string"
+        },
+        "priceRefreshId": {
+          "type": "string"
+        },
+        "ttcOrderDetailId": {
+          "type": "string"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "wisePartNo": {
+          "type": "string"
+        }
+      },
+      "title": "OmOrderPriceRefreshDetail"
+    },
+    "OmOrderPriceRefreshHistory": {
+      "type": "object",
+      "properties": {
+        "businessType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "buyerId": {
+          "type": "string"
+        },
+        "buyerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractDescription": {
+          "type": "string"
+        },
+        "contractId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "effectiveFrom": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "orderIssuedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "priceIssuedBy": {
+          "type": "string"
+        },
+        "priceIssuedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "priceRefreshId": {
+          "type": "string"
+        },
+        "reasonForNotRefreshed": {
+          "type": "string"
+        },
+        "refreshedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "sellerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ttcOrderId": {
+          "type": "string"
+        },
+        "ttcOrderNo": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OmOrderPriceRefreshHistory"
+    },
+    "OmPartnerDetailInfo": {
+      "type": "object",
+      "properties": {
+        "addressInfo1": {
+          "type": "string"
+        },
+        "addressInfo2": {
+          "type": "string"
+        },
+        "addressInfo3": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "countryName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "dateFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "faxNo": {
+          "type": "string"
+        },
+        "fieldMap": {
+          "type": "object"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "keyColumn": {
+          "type": "string"
+        },
+        "partnerCode": {
+          "type": "string"
+        },
+        "partnerDetailId": {
+          "type": "string"
+        },
+        "partnerId": {
+          "type": "string"
+        },
+        "partnerName": {
+          "type": "string"
+        },
+        "partnerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "picName": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "telNo": {
+          "type": "string"
+        },
+        "ttcOrderId": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OmPartnerDetailInfo"
+    },
+    "OmShippingStatus": {
+      "type": "object",
+      "properties": {
+        "blNo": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "deliveryQty": {
+          "type": "number"
+        },
+        "deliveryToCustomerDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "eta": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "etd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "invoiceNo": {
+          "type": "string"
+        },
+        "shipmentMode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shippingStatusId": {
+          "type": "string"
+        },
+        "shippingStatusType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ttcOrderDetailId": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "vesselName": {
+          "type": "string"
+        }
+      },
+      "title": "OmShippingStatus"
+    },
+    "OmTtcOrder": {
+      "type": "object",
+      "properties": {
+        "businessType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "buyerId": {
+          "type": "string"
+        },
+        "buyerSectionId": {
+          "type": "string"
+        },
+        "buyerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "confirmationTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "contractId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "dateFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deliveryToId": {
+          "type": "string"
+        },
+        "deliveryToType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fieldMap": {
+          "type": "object"
+        },
+        "incotermsCode": {
+          "type": "string"
+        },
+        "incotermsPlace": {
+          "type": "string"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "issuedBy": {
+          "type": "string"
+        },
+        "issuedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "keyColumn": {
+          "type": "string"
+        },
+        "orderManagementType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderMonth": {
+          "type": "string"
+        },
+        "orderReference": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderWeek": {
+          "type": "string"
+        },
+        "paymentTerms": {
+          "type": "string"
+        },
+        "paymentTermsCode": {
+          "type": "string"
+        },
+        "poESignatureImageName": {
+          "type": "string"
+        },
+        "poESignatureText": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "remarksForPoPrint": {
+          "type": "string"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "sellerSectionId": {
+          "type": "string"
+        },
+        "sellerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shipmentMode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalAmount": {
+          "type": "number"
+        },
+        "ttcOrderId": {
+          "type": "string"
+        },
+        "ttcOrderNo": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OmTtcOrder"
+    },
+    "OmTtcOrderDetail": {
+      "type": "object",
+      "properties": {
+        "confirmedQty": {
+          "type": "number"
+        },
+        "contractPartId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "dateFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deliveredQty": {
+          "type": "number"
+        },
+        "deliveryLot": {
+          "type": "number"
+        },
+        "expHsCode": {
+          "type": "string"
+        },
+        "exportCountry": {
+          "type": "string"
+        },
+        "fieldMap": {
+          "type": "object"
+        },
+        "firmQty": {
+          "type": "number"
+        },
+        "impHsCode": {
+          "type": "string"
+        },
+        "importCountry": {
+          "type": "string"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "keyColumn": {
+          "type": "string"
+        },
+        "orderLot": {
+          "type": "number"
+        },
+        "prevFcQty": {
+          "type": "number"
+        },
+        "prevRevisedFcQty": {
+          "type": "number"
+        },
+        "priceReflectionBasis": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ttcOrderDetailId": {
+          "type": "string"
+        },
+        "ttcOrderId": {
+          "type": "string"
+        },
+        "unitPrice": {
+          "type": "number"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "wisePartNo": {
+          "type": "string"
+        }
+      },
+      "title": "OmTtcOrderDetail"
+    },
+    "OmTtcOrderPartsDetail": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "customerCode": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "customerPartBackNo": {
+          "type": "string"
+        },
+        "customerPartDescription": {
+          "type": "string"
+        },
+        "customerPartNo": {
+          "type": "string"
+        },
+        "dateFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fieldMap": {
+          "type": "object"
+        },
+        "firmQty": {
+          "type": "number"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "keyColumn": {
+          "type": "string"
+        },
+        "nextTtcOrderId": {
+          "type": "string"
+        },
+        "preTtcOrderId": {
+          "type": "string"
+        },
+        "prevFcQty": {
+          "type": "number"
+        },
+        "prevRevisedFcQty": {
+          "type": "number"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "subSupplierId": {
+          "type": "string"
+        },
+        "supplierCode": {
+          "type": "string"
+        },
+        "supplierId": {
+          "type": "string"
+        },
+        "supplierName": {
+          "type": "string"
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "supplierPartNo": {
+          "type": "string"
+        },
+        "supplierPlantId": {
+          "type": "string"
+        },
+        "ttcOrderDetailId": {
+          "type": "string"
+        },
+        "ttcOrderPartsDetailId": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OmTtcOrderPartsDetail"
+    },
+    "OptionBeanList": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "OptionBeanList"
+    },
+    "PageInfoOfOM050S02FirmInfo": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM050S02FirmInfo"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfoOfOM050S02FirmInfo"
+    },
+    "PageInfoOfOM070OrderVO": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM070OrderVO"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfoOfOM070OrderVO"
+    },
+    "PageInfoOfOM090S01TableModel": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OM090S01TableModel"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfoOfOM090S01TableModel"
+    },
+    "PageInfoOfTiTtcOrderVo": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TiTtcOrderVo"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfoOfTiTtcOrderVo"
+    },
+    "ResultCode": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "serviceNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "variables": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "ResultCode"
+    },
+    "Status": {
+      "type": "object",
+      "properties": {
+        "completed": {
+          "type": "boolean"
+        },
+        "failed": {
+          "type": "boolean"
+        },
+        "failureCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maskCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "resultCode": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "SUCCESS",
+            "FAILURE_COMPLETED",
+            "FAILURE",
+            "UNCOMPLETED",
+            "INVALID"
+          ]
+        },
+        "succeeded": {
+          "type": "boolean"
+        },
+        "successCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timeStamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "transactionKey": {
+          "type": "string"
+        },
+        "transactionMaskCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "Status"
+    },
+    "TiTtcOrderVo": {
+      "type": "object",
+      "properties": {
+        "buyer": {
+          "type": "string"
+        },
+        "buyerId": {
+          "type": "string"
+        },
+        "buyerType": {
+          "type": "string"
+        },
+        "checkBoxDisable": {
+          "type": "boolean"
+        },
+        "contractId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "orderDate": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "orderNumber": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "string"
+        },
+        "sellerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "string"
+        },
+        "ttcOrderId": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "TiTtcOrderVo"
+    },
+    "Timestamp": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "day": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hours": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minutes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "month": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nanos": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "seconds": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timezoneOffset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Timestamp"
+    }
+  }
+}

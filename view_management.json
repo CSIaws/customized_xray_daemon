@@ -1,0 +1,4997 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Please add decription",
+    "version": "1.0",
+    "title": "Please add title"
+  },
+  "host": "localhost:9030",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "OP020S01QueryEndpoint",
+      "description": "OP 020 S 01 Query Endpoint"
+    },
+    {
+      "name": "OP020S03QueryEndpoint",
+      "description": "OP 020 S 03 Query Endpoint"
+    },
+    {
+      "name": "ViewWM030S01QueryEndpoint",
+      "description": "View WM 030 S 01 Query Endpoint"
+    },
+    {
+      "name": "ViewWM030S02QueryEndpoint",
+      "description": "View WM 030 S 02 Query Endpoint"
+    },
+    {
+      "name": "ViewWM030S03QueryEndpoint",
+      "description": "View WM 030 S 03 Query Endpoint"
+    },
+    {
+      "name": "ViewWM030S05QueryEndpoint",
+      "description": "View WM 030 S 05 Query Endpoint"
+    },
+    {
+      "name": "ViewWM030S09QueryEndpoint",
+      "description": "View WM 030 S 09 Query Endpoint"
+    },
+    {
+      "name": "ViewWM030S10QueryEndpoint",
+      "description": "View WM 030 S 10 Query Endpoint"
+    },
+    {
+      "name": "status-query-endpoint",
+      "description": "Status Query Endpoint"
+    },
+    {
+      "name": "view-sm-030-s-01-query-endpoint",
+      "description": "View SM 030 S 01 Query Endpoint"
+    },
+    {
+      "name": "view-sm-030-s-02-query-endpoint",
+      "description": "View SM 030 S 02 Query Endpoint"
+    },
+    {
+      "name": "view-sm-030-s-05-query-endpoint",
+      "description": "View SM 030 S 05 Query Endpoint"
+    }
+  ],
+  "paths": {
+    "/OP020S01/ev_init_on_load": {
+      "get": {
+        "tags": [
+          "OP020S01QueryEndpoint"
+        ],
+        "summary": "Search subOrCustomer contract",
+        "operationId": "evInitOnLoadUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "contractDescription",
+            "in": "query",
+            "description": "contractDescription",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "description": "customerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "orderDueEndDate",
+            "in": "query",
+            "description": "orderDueEndDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderDueStartDate",
+            "in": "query",
+            "description": "orderDueStartDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "subCustomerId",
+            "in": "query",
+            "description": "subCustomerId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfViewOP020S01QResultVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OP020S03/ev_init_on_load": {
+      "get": {
+        "tags": [
+          "OP020S03QueryEndpoint"
+        ],
+        "summary": "evInitOnLoad",
+        "operationId": "evInitOnLoadUsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "contractId",
+            "in": "query",
+            "description": "contractId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "exportCountry",
+            "in": "query",
+            "description": "exportCountry",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderDueDate",
+            "in": "query",
+            "description": "orderDueDate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "orderMonth",
+            "in": "query",
+            "description": "orderMonth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "description": "orderType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "partDescription",
+            "in": "query",
+            "description": "partDescription",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "partNo",
+            "in": "query",
+            "description": "partNo",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MasterMonthlyOrder"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S01/ev_download_icon_cross_f01": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-01-query-endpoint"
+        ],
+        "summary": "ev_download_icon for F01",
+        "operationId": "evDownloadButtonForF01UsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "lang",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "vanningId",
+            "in": "query",
+            "description": "vanningId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfViewSM030F01VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S01/ev_download_icon_cross_f02": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-01-query-endpoint"
+        ],
+        "summary": "ev_download_icon for F02",
+        "operationId": "evDownloadButtonForF02UsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "lang",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "vanningId",
+            "in": "query",
+            "description": "vanningId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfViewSM030F02VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S01/ev_init_on_load_cross": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-01-query-endpoint"
+        ],
+        "summary": "evInitOnLoad",
+        "operationId": "evInitOnLoadUsingGET_2",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfPageInfoOfViewSM030S01ResultVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S01/selectSplitDeliveryTag": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-01-query-endpoint"
+        ],
+        "summary": "selectSplitDeliveryTag",
+        "operationId": "selectSplitDeliveryTagUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "vanningId",
+            "in": "query",
+            "description": "vanningId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewSM030S01SplitDeliveryTag"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S02/ev_init_on_load_cross": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-02-query-endpoint"
+        ],
+        "summary": "evInitOnLoad",
+        "operationId": "evInitOnLoadUsingGET_3",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "lang",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vanningId",
+            "in": "query",
+            "description": "vanningId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfViewSM030S02VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S02/search_case_list": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-02-query-endpoint"
+        ],
+        "summary": "search case list",
+        "operationId": "searchCaseListUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewSM030S02CaseDetail"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S02/search_part_list": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-02-query-endpoint"
+        ],
+        "summary": "search part list",
+        "operationId": "searchPartListUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewSM030S02Part"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S02/search_rr_list": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-02-query-endpoint"
+        ],
+        "summary": "search rr list",
+        "operationId": "searchRrListUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewSM030S02Rr"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S05/ev_init_on_load_cross": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-05-query-endpoint"
+        ],
+        "summary": "evInitOnLoad",
+        "operationId": "evInitOnLoadUsingGET_4",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewSM030S05ResultVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S05/view_ev_download_vanning_form_cross_f01": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-05-query-endpoint"
+        ],
+        "summary": "ev_download_vanning_form_button for F01",
+        "operationId": "evDownloadVanningFormButtonForF01UsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfViewSM030F01VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S05/view_ev_download_vanning_form_cross_f02": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-05-query-endpoint"
+        ],
+        "summary": "ev_download_vanning_form_button for F02",
+        "operationId": "evDownloadVanningFormButtonForF02UsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfViewSM030F02VO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewSM030S05/view_get_vanning_part_detail": {
+      "get": {
+        "tags": [
+          "view-sm-030-s-05-query-endpoint"
+        ],
+        "summary": "getVanningPart",
+        "operationId": "searchVanningPartDetailByPendingVanningCustomerIdUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pendingVanningCustomerId",
+            "in": "query",
+            "description": "pendingVanningCustomerId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfSmVanningPartDetail"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S01/ev_download_inbound_data_icon": {
+      "get": {
+        "tags": [
+          "ViewWM030S01QueryEndpoint"
+        ],
+        "summary": "Download Inbound Data",
+        "operationId": "evDownloadInboundDataIconUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewWM030F01RowItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S02/ev_download_button": {
+      "get": {
+        "tags": [
+          "ViewWM030S02QueryEndpoint"
+        ],
+        "summary": "Download Inbound Data",
+        "operationId": "evDownloadInboundDataIconUsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewWM030F01RowItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S02/ev_init_on_load_cross": {
+      "get": {
+        "tags": [
+          "ViewWM030S02QueryEndpoint"
+        ],
+        "summary": "evInitOnLoad",
+        "operationId": "selectInboundInfoListUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfPageInfoOfViewWM030F01RowItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S02/selectRelatedDescription": {
+      "get": {
+        "tags": [
+          "ViewWM030S02QueryEndpoint"
+        ],
+        "summary": "All current TTC's related contract description",
+        "operationId": "selectRelatedDescriptionUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "languageCode",
+            "in": "query",
+            "description": "languageCode",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ttcOfficeId",
+            "in": "query",
+            "description": "ttcOfficeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfOptionBean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S03/view_WM030S03_Warehouse": {
+      "get": {
+        "tags": [
+          "ViewWM030S03QueryEndpoint"
+        ],
+        "summary": "search all warehouse",
+        "operationId": "searchAllWarehouseUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ttcOfficeId",
+            "in": "query",
+            "description": "ttcOfficeId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfOptionBean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S03/view_ev_init_on_load": {
+      "get": {
+        "tags": [
+          "ViewWM030S03QueryEndpoint"
+        ],
+        "summary": "evInitOnLoad",
+        "operationId": "evInitOnLoadUsingGET_5",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "expInboundActualId",
+            "in": "query",
+            "description": "expInboundActualId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewWM030S03ResultVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S05/view_ev_download_icon_cross_f02": {
+      "get": {
+        "tags": [
+          "ViewWM030S05QueryEndpoint"
+        ],
+        "summary": "ev_download_icon for F02",
+        "operationId": "evDownloadButtonForF02UsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filterVoJson",
+            "in": "query",
+            "description": "filterVoJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfViewWM030F02ResultVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S05/view_ev_download_icon_cross_f03": {
+      "get": {
+        "tags": [
+          "ViewWM030S05QueryEndpoint"
+        ],
+        "summary": "ev_download_icon for F03",
+        "operationId": "evDownloadButtonForF03UsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filterVoJson",
+            "in": "query",
+            "description": "filterVoJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfViewWM030F03ResultVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S05/view_ev_id_data": {
+      "get": {
+        "tags": [
+          "ViewWM030S05QueryEndpoint"
+        ],
+        "summary": "evIdData",
+        "operationId": "evIdDataUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "languagecode",
+            "in": "query",
+            "description": "languagecode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ttcofficeid",
+            "in": "query",
+            "description": "ttcofficeid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "warehouseId",
+            "in": "query",
+            "description": "warehouseId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfWmExpInboundActualDetailExt"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S05/view_ev_init_on_load": {
+      "get": {
+        "tags": [
+          "ViewWM030S05QueryEndpoint"
+        ],
+        "summary": "evInitOnLoad",
+        "operationId": "evInitOnLoadUsingGET_6",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "warehouseId",
+            "in": "query",
+            "description": "warehouseId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewWM030S05ResultVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S05/view_ev_search_icon": {
+      "get": {
+        "tags": [
+          "ViewWM030S05QueryEndpoint"
+        ],
+        "summary": "evSearchIcon",
+        "operationId": "evSearchIconUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filterVoJson",
+            "in": "query",
+            "description": "filterVoJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewWM030S05ResultVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S09/ev_download_button_cross": {
+      "get": {
+        "tags": [
+          "ViewWM030S09QueryEndpoint"
+        ],
+        "summary": "evDownloadButton",
+        "operationId": "evDownloadButtonCrossUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filterVoJson",
+            "in": "query",
+            "description": "filterVoJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewWM030F04RowItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S09/ev_search_button_cross": {
+      "get": {
+        "tags": [
+          "ViewWM030S09QueryEndpoint"
+        ],
+        "summary": "evSearchButton",
+        "operationId": "evSearchButtonCrossUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfListOfViewWM030F04RowItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S09/ev_search_button_cross_screen": {
+      "get": {
+        "tags": [
+          "ViewWM030S09QueryEndpoint"
+        ],
+        "summary": "evSearchButton",
+        "operationId": "evSearchButtonCrossScreenUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfPageInfoOfViewWM030F04RowItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ViewWM030S10/ev_init_on_load_cross": {
+      "get": {
+        "tags": [
+          "ViewWM030S10QueryEndpoint"
+        ],
+        "summary": "evInitOnLoad",
+        "operationId": "evInitOnLoadUsingGET_7",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paramJson",
+            "in": "query",
+            "description": "paramJson",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfPageInfoOfViewWM030S10RowItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/status/{transactionKey}": {
+      "get": {
+        "tags": [
+          "status-query-endpoint"
+        ],
+        "summary": "Query global transaction status by key",
+        "operationId": "findByTransactionKeyUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "transactionKey",
+            "in": "path",
+            "description": "transactionKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "CrInitialForecast": {
+      "type": "object",
+      "properties": {
+        "contractId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "customerForecastId": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "dateFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fieldMap": {
+          "type": "object"
+        },
+        "forecastResponsibleParty": {
+          "type": "string"
+        },
+        "forecastType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initialForecastId": {
+          "type": "string"
+        },
+        "initialForecastNo": {
+          "type": "string"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isInsert": {
+          "type": "boolean"
+        },
+        "isUpdate": {
+          "type": "boolean"
+        },
+        "issuedBy": {
+          "type": "string"
+        },
+        "issuedTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "keyColumn": {
+          "type": "string"
+        },
+        "orderMonth": {
+          "type": "string"
+        },
+        "orderWeek": {
+          "type": "string"
+        },
+        "responsiblePartyType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "revisionStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "subCustomerId": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "CrInitialForecast"
+    },
+    "CrInitialOrder": {
+      "type": "object",
+      "properties": {
+        "contractId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerPoId": {
+          "type": "string"
+        },
+        "dateFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deliveryPlanEnd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deliveryPlanStart": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deliveryToId": {
+          "type": "string"
+        },
+        "deliveryToType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fieldMap": {
+          "type": "object"
+        },
+        "initialOrderId": {
+          "type": "string"
+        },
+        "initialOrderNo": {
+          "type": "string"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isInsert": {
+          "type": "boolean"
+        },
+        "isUpdate": {
+          "type": "boolean"
+        },
+        "issuedBy": {
+          "type": "string"
+        },
+        "issuedTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "keyColumn": {
+          "type": "string"
+        },
+        "orderDueDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "orderMonth": {
+          "type": "string"
+        },
+        "orderReference": {
+          "type": "string"
+        },
+        "orderResponsibleParty": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderWeek": {
+          "type": "string"
+        },
+        "paymentTermsCode": {
+          "type": "string"
+        },
+        "responsiblePartyType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "subCustomerId": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "type": "number"
+        },
+        "totalNumberOfParts": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalQty": {
+          "type": "number"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "CrInitialOrder"
+    },
+    "DataWrapperOfListOfOptionBean": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OptionBean"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfOptionBean"
+    },
+    "DataWrapperOfListOfViewSM030S01SplitDeliveryTag": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S01SplitDeliveryTag"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfViewSM030S01SplitDeliveryTag"
+    },
+    "DataWrapperOfListOfViewSM030S02CaseDetail": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S02CaseDetail"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfViewSM030S02CaseDetail"
+    },
+    "DataWrapperOfListOfViewSM030S02Part": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S02Part"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfViewSM030S02Part"
+    },
+    "DataWrapperOfListOfViewSM030S02Rr": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S02Rr"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfViewSM030S02Rr"
+    },
+    "DataWrapperOfListOfViewSM030S05ResultVO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S05ResultVO"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfViewSM030S05ResultVO"
+    },
+    "DataWrapperOfListOfViewWM030F01RowItem": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030F01RowItem"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfViewWM030F01RowItem"
+    },
+    "DataWrapperOfListOfViewWM030F04RowItem": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030F04RowItem"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfViewWM030F04RowItem"
+    },
+    "DataWrapperOfListOfViewWM030S03ResultVO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030S03ResultVO"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfViewWM030S03ResultVO"
+    },
+    "DataWrapperOfListOfViewWM030S05ResultVO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030S05ResultVO"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfViewWM030S05ResultVO"
+    },
+    "DataWrapperOfListOfWmExpInboundActualDetailExt": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WmExpInboundActualDetailExt"
+          }
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfListOfWmExpInboundActualDetailExt"
+    },
+    "DataWrapperOfPageInfoOfViewSM030S01ResultVO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PageInfoOfViewSM030S01ResultVO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfPageInfoOfViewSM030S01ResultVO"
+    },
+    "DataWrapperOfPageInfoOfViewWM030F01RowItem": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PageInfoOfViewWM030F01RowItem"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfPageInfoOfViewWM030F01RowItem"
+    },
+    "DataWrapperOfPageInfoOfViewWM030F04RowItem": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PageInfoOfViewWM030F04RowItem"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfPageInfoOfViewWM030F04RowItem"
+    },
+    "DataWrapperOfPageInfoOfViewWM030S10RowItem": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PageInfoOfViewWM030S10RowItem"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfPageInfoOfViewWM030S10RowItem"
+    },
+    "DataWrapperOfSmVanningPartDetail": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/SmVanningPartDetail"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfSmVanningPartDetail"
+    },
+    "DataWrapperOfStatus": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Status"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfStatus"
+    },
+    "DataWrapperOfViewOP020S01QResultVO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ViewOP020S01QResultVO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfViewOP020S01QResultVO"
+    },
+    "DataWrapperOfViewSM030F01VO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ViewSM030F01VO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfViewSM030F01VO"
+    },
+    "DataWrapperOfViewSM030F02VO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ViewSM030F02VO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfViewSM030F02VO"
+    },
+    "DataWrapperOfViewSM030S02VO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ViewSM030S02VO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfViewSM030S02VO"
+    },
+    "DataWrapperOfViewWM030F02ResultVO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ViewWM030F02ResultVO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfViewWM030F02ResultVO"
+    },
+    "DataWrapperOfViewWM030F03ResultVO": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ViewWM030F03ResultVO"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfViewWM030F03ResultVO"
+    },
+    "DropDownListVO": {
+      "type": "object",
+      "properties": {
+        "contractDescriptionList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DropDownVO"
+          }
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "statusList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DropDownVO"
+          }
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "DropDownListVO"
+    },
+    "DropDownVO": {
+      "type": "object",
+      "properties": {
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "DropDownVO"
+    },
+    "ErrorOrWarningMessage": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "string"
+        },
+        "messageCode": {
+          "type": "string"
+        },
+        "messageContent": {
+          "type": "string"
+        },
+        "messageParameterList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "ErrorOrWarningMessage"
+    },
+    "ForecastDetail": {
+      "type": "object",
+      "properties": {
+        "crInitialForecast": {
+          "$ref": "#/definitions/CrInitialForecast"
+        },
+        "fduom": {
+          "type": "string"
+        },
+        "forecastDecimalDigits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "forecastNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "forecastOrderLot": {
+          "type": "number"
+        },
+        "forecastOrderMonth": {
+          "type": "string"
+        },
+        "forecastQty": {
+          "type": "number"
+        },
+        "forecastResponsibleParty": {
+          "type": "string"
+        },
+        "forecastSpList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ForecastSpInfo"
+          }
+        },
+        "initialForecastDetailId": {
+          "type": "string"
+        },
+        "initialForecastId": {
+          "type": "string"
+        },
+        "initialForecastNo": {
+          "type": "string"
+        },
+        "initialForecastVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "purchaseUomCode": {
+          "type": "string"
+        },
+        "updateBy": {
+          "type": "string"
+        }
+      },
+      "title": "ForecastDetail"
+    },
+    "ForecastSpInfo": {
+      "type": "object",
+      "properties": {
+        "deliveryForecastQty": {
+          "type": "number"
+        },
+        "forecastDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "initialForecastSPId": {
+          "type": "string"
+        }
+      },
+      "title": "ForecastSpInfo"
+    },
+    "MasterMonthlyOrder": {
+      "type": "object",
+      "properties": {
+        "activeStepValue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "allTotalAmount": {
+          "type": "number"
+        },
+        "allTotalNumberOfParts": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "allTotalQty": {
+          "type": "number"
+        },
+        "businessType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractDescription": {
+          "type": "string"
+        },
+        "contractId": {
+          "type": "string"
+        },
+        "contractNumber": {
+          "type": "string"
+        },
+        "crInitialOrderId": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "customerLeadTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deliveryPlan": {
+          "type": "string"
+        },
+        "deliveryPlanEnd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deliveryPlanStart": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deliveryTo": {
+          "type": "string"
+        },
+        "deliveryToId": {
+          "type": "string"
+        },
+        "deliveryToType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "errorFlag": {
+          "type": "boolean"
+        },
+        "exportCountry": {
+          "type": "string"
+        },
+        "exportCountryDescription": {
+          "type": "string"
+        },
+        "importLeadTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "monthlyOrderDetailList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MonthlyOrderDetail"
+          }
+        },
+        "monthlyOrderTiming": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfForecast": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderDueDate": {
+          "type": "string"
+        },
+        "orderMonth": {
+          "type": "string"
+        },
+        "orderReference": {
+          "type": "string"
+        },
+        "orderResponsiblePartyId": {
+          "type": "string"
+        },
+        "orderResponsiblePartyType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderType": {
+          "type": "string"
+        },
+        "paymentTerms": {
+          "type": "string"
+        },
+        "paymentTermsCode": {
+          "type": "string"
+        },
+        "seller": {
+          "type": "string"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "shipmentMode": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "shipmentModeDescription": {
+          "type": "string"
+        },
+        "tempFileVersion": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "type": "number"
+        },
+        "totalAmountDecimalDigits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalNumberOfParts": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalQty": {
+          "type": "number"
+        },
+        "unitPriceDecimalDigits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "uomDecimalDigits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "title": "MasterMonthlyOrder"
+    },
+    "MonthlyOrderDetail": {
+      "type": "object",
+      "properties": {
+        "contractIdTem": {
+          "type": "string"
+        },
+        "contractPartId": {
+          "type": "string"
+        },
+        "crInitialOrder": {
+          "$ref": "#/definitions/CrInitialOrder"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "decimalDigits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "errorMessage": {
+          "type": "boolean"
+        },
+        "errorOrWarningMessageList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorOrWarningMessage"
+          }
+        },
+        "exportCountry": {
+          "type": "string"
+        },
+        "exportCountryDescription": {
+          "type": "string"
+        },
+        "exportLeadTime1": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exportLeadTime2": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exportLeadTime3": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exportLeadTime4": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exportLeadTime5": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exportLeadTime6": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exportLeadTime7": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firmQty": {
+          "type": "number"
+        },
+        "fluctuation": {
+          "type": "string"
+        },
+        "forecastDetailList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ForecastDetail"
+          }
+        },
+        "forecastQty": {
+          "type": "number"
+        },
+        "initialOrderDetailId": {
+          "type": "string"
+        },
+        "initialOrderId": {
+          "type": "string"
+        },
+        "initialOrderVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "orderDueDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "orderLot": {
+          "type": "number"
+        },
+        "orderMonth": {
+          "type": "string"
+        },
+        "orderSpInfoList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderSpInfo"
+          }
+        },
+        "orderlotCheck": {
+          "type": "string"
+        },
+        "pairedPartFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pairedPartNo": {
+          "type": "string"
+        },
+        "partDescription": {
+          "type": "string"
+        },
+        "partNo": {
+          "type": "string"
+        },
+        "prevFcQty": {
+          "type": "number"
+        },
+        "revisedForecastQty": {
+          "type": "number"
+        },
+        "revisionStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shippingRouteId1": {
+          "type": "string"
+        },
+        "shippingRouteId2": {
+          "type": "string"
+        },
+        "shippingRouteId3": {
+          "type": "string"
+        },
+        "shippingRouteId4": {
+          "type": "string"
+        },
+        "shippingRouteId5": {
+          "type": "string"
+        },
+        "shippingRouteId6": {
+          "type": "string"
+        },
+        "shippingRouteId7": {
+          "type": "string"
+        },
+        "supplierPartNo": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "type": "number"
+        },
+        "unitPrice": {
+          "type": "number"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "updateBy": {
+          "type": "string"
+        },
+        "warnMessage": {
+          "type": "boolean"
+        },
+        "wisePartId": {
+          "type": "string"
+        }
+      },
+      "title": "MonthlyOrderDetail"
+    },
+    "OP020S01CustomerOrSubVO": {
+      "type": "object",
+      "properties": {
+        "activeStepValue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractDescription": {
+          "type": "string"
+        },
+        "contractId": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "deliveryPlan": {
+          "type": "string"
+        },
+        "deliveryPlanList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exportCountry": {
+          "type": "string"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "CREATE",
+            "UPDATE"
+          ]
+        },
+        "modeList": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "CREATE",
+              "UPDATE"
+            ]
+          }
+        },
+        "no": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderDueDate": {
+          "type": "string"
+        },
+        "orderDueDateList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orderDueDateValue": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "showIcon": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "statusValue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "OP020S01CustomerOrSubVO"
+    },
+    "OptionBean": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "OptionBean"
+    },
+    "OrderSpInfo": {
+      "type": "object",
+      "properties": {
+        "deliveryOrderQty": {
+          "type": "number"
+        },
+        "initialOrderSPId": {
+          "type": "string"
+        },
+        "orderDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "OrderSpInfo"
+    },
+    "PageInfoOfViewSM030S01ResultVO": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S01ResultVO"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfoOfViewSM030S01ResultVO"
+    },
+    "PageInfoOfViewWM030F01RowItem": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030F01RowItem"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfoOfViewWM030F01RowItem"
+    },
+    "PageInfoOfViewWM030F04RowItem": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030F04RowItem"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfoOfViewWM030F04RowItem"
+    },
+    "PageInfoOfViewWM030S10RowItem": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030S10RowItem"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfoOfViewWM030S10RowItem"
+    },
+    "ResultCode": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "serviceNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "variables": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "ResultCode"
+    },
+    "SmVanningCaseDetailExt": {
+      "type": "object",
+      "properties": {
+        "caseHeight": {
+          "type": "number"
+        },
+        "caseLength": {
+          "type": "number"
+        },
+        "caseM3": {
+          "type": "number"
+        },
+        "caseNo": {
+          "type": "string"
+        },
+        "caseUom": {
+          "type": "string"
+        },
+        "caseWidth": {
+          "type": "number"
+        },
+        "containerNo": {
+          "type": "string"
+        },
+        "containerTypeCode": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "grossWeight": {
+          "type": "number"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isDelete": {
+          "type": "boolean"
+        },
+        "isInsert": {
+          "type": "boolean"
+        },
+        "isUpdate": {
+          "type": "boolean"
+        },
+        "netWeight": {
+          "type": "number"
+        },
+        "noOfCases": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sealNo": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "vanningCaseDetailId": {
+          "type": "string"
+        },
+        "vanningDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "vanningId": {
+          "type": "string"
+        },
+        "vanningType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "SmVanningCaseDetailExt"
+    },
+    "SmVanningCaseRrMaterialExt": {
+      "type": "object",
+      "properties": {
+        "caseNo": {
+          "type": "string"
+        },
+        "caseRrMaterialId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "description": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isDelete": {
+          "type": "boolean"
+        },
+        "isInsert": {
+          "type": "boolean"
+        },
+        "isUpdate": {
+          "type": "boolean"
+        },
+        "noOfCases": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "ownerId": {
+          "type": "string"
+        },
+        "returnableMaterialCode": {
+          "type": "string"
+        },
+        "returnableMaterialId": {
+          "type": "string"
+        },
+        "totalQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "vanningCaseDetailId": {
+          "type": "string"
+        },
+        "vanningId": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "SmVanningCaseRrMaterialExt"
+    },
+    "SmVanningIpDetailExt": {
+      "type": "object",
+      "properties": {
+        "caseNo": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "innerPackingNo": {
+          "type": "string"
+        },
+        "isDelete": {
+          "type": "boolean"
+        },
+        "isInsert": {
+          "type": "boolean"
+        },
+        "isUpdate": {
+          "type": "boolean"
+        },
+        "netWeightPerBox": {
+          "type": "number"
+        },
+        "noOfBoxes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qtyPerBox": {
+          "type": "number"
+        },
+        "totalQty": {
+          "type": "number"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "vanningIpDetailId": {
+          "type": "string"
+        },
+        "vanningPartDetailId": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "SmVanningIpDetailExt"
+    },
+    "SmVanningPartDetail": {
+      "type": "object",
+      "properties": {
+        "availableQty": {
+          "type": "number"
+        },
+        "buyerId": {
+          "type": "string"
+        },
+        "buyerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "customerOrderDetailId": {
+          "type": "string"
+        },
+        "customerOrderId": {
+          "type": "string"
+        },
+        "customerOrderNo": {
+          "type": "string"
+        },
+        "customerOrderReference": {
+          "type": "string"
+        },
+        "customerPartDescription": {
+          "type": "string"
+        },
+        "customerPartNo": {
+          "type": "string"
+        },
+        "deliveryLog": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "netWeightPerBox": {
+          "type": "number"
+        },
+        "noOfBoxes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderDescription": {
+          "type": "string"
+        },
+        "pendingVanningQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qtyPerBox": {
+          "type": "number"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "sellerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "supplierPartNo": {
+          "type": "string"
+        },
+        "totalQty": {
+          "type": "number"
+        },
+        "ttcOrderDetailId": {
+          "type": "string"
+        },
+        "ttcOrderId": {
+          "type": "string"
+        },
+        "ttcOrderNo": {
+          "type": "string"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "vanningCaseDetailId": {
+          "type": "string"
+        },
+        "vanningId": {
+          "type": "string"
+        },
+        "vanningPartDetailId": {
+          "type": "string"
+        },
+        "vanningType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "wisePartNo": {
+          "type": "string"
+        }
+      },
+      "title": "SmVanningPartDetail"
+    },
+    "SmVanningPartDetailExt": {
+      "type": "object",
+      "properties": {
+        "availableQty": {
+          "type": "number"
+        },
+        "buyerId": {
+          "type": "string"
+        },
+        "buyerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "caseNo": {
+          "type": "string"
+        },
+        "contractId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "customerOrderDetailId": {
+          "type": "string"
+        },
+        "customerOrderId": {
+          "type": "string"
+        },
+        "customerOrderNo": {
+          "type": "string"
+        },
+        "customerOrderReference": {
+          "type": "string"
+        },
+        "customerPartDescription": {
+          "type": "string"
+        },
+        "customerPartNo": {
+          "type": "string"
+        },
+        "deliveryLog": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "innerPackingBoxID": {
+          "type": "string"
+        },
+        "isDelete": {
+          "type": "boolean"
+        },
+        "isInsert": {
+          "type": "boolean"
+        },
+        "isUpdate": {
+          "type": "boolean"
+        },
+        "netWeightPerBox": {
+          "type": "number"
+        },
+        "noOfBoxes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderDescription": {
+          "type": "string"
+        },
+        "partDescription": {
+          "type": "string"
+        },
+        "pendingVanningCustomerId": {
+          "type": "string"
+        },
+        "pendingVanningQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qtyPerBox": {
+          "type": "number"
+        },
+        "sellerId": {
+          "type": "string"
+        },
+        "sellerType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "smVanningCaseDetailExt": {
+          "$ref": "#/definitions/SmVanningCaseDetailExt"
+        },
+        "smVanningIpDetailExtList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SmVanningIpDetailExt"
+          }
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "supplierPartNo": {
+          "type": "string"
+        },
+        "totalQty": {
+          "type": "number"
+        },
+        "ttcOrderDetailId": {
+          "type": "string"
+        },
+        "ttcOrderId": {
+          "type": "string"
+        },
+        "ttcOrderNo": {
+          "type": "string"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "vanningCaseDetailId": {
+          "type": "string"
+        },
+        "vanningId": {
+          "type": "string"
+        },
+        "vanningPartDetailId": {
+          "type": "string"
+        },
+        "vanningType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "wisePartNo": {
+          "type": "string"
+        }
+      },
+      "title": "SmVanningPartDetailExt"
+    },
+    "Status": {
+      "type": "object",
+      "properties": {
+        "completed": {
+          "type": "boolean"
+        },
+        "failed": {
+          "type": "boolean"
+        },
+        "failureCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maskCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "resultCode": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "SUCCESS",
+            "FAILURE_COMPLETED",
+            "FAILURE",
+            "UNCOMPLETED",
+            "INVALID"
+          ]
+        },
+        "succeeded": {
+          "type": "boolean"
+        },
+        "successCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timeStamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "transactionKey": {
+          "type": "string"
+        },
+        "transactionMaskCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "Status"
+    },
+    "Timestamp": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "day": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hours": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minutes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "month": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nanos": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "seconds": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timezoneOffset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Timestamp"
+    },
+    "ViewOP020S01QResultVO": {
+      "type": "object",
+      "properties": {
+        "dropDownList": {
+          "$ref": "#/definitions/DropDownListVO"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "op020S01CustomerOrSubList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OP020S01CustomerOrSubVO"
+          }
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "ViewOP020S01QResultVO"
+    },
+    "ViewSM030F01Basic": {
+      "type": "object",
+      "properties": {
+        "destination": {
+          "type": "string"
+        },
+        "etd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shipmentMode": {
+          "type": "string"
+        },
+        "vanningLocation": {
+          "type": "string"
+        },
+        "vanningNo": {
+          "type": "string"
+        },
+        "vanningReference": {
+          "type": "string"
+        }
+      },
+      "title": "ViewSM030F01Basic"
+    },
+    "ViewSM030F01VO": {
+      "type": "object",
+      "properties": {
+        "sm030F01Basic": {
+          "$ref": "#/definitions/ViewSM030F01Basic"
+        },
+        "smVanningCaseDetailExts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SmVanningCaseDetailExt"
+          }
+        },
+        "smVanningCaseRrMaterialExts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SmVanningCaseRrMaterialExt"
+          }
+        },
+        "smVanningPartDetailExts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SmVanningPartDetailExt"
+          }
+        },
+        "vanningCaseDetailList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030FileCaseDetail"
+          }
+        },
+        "vanningPartList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030FilePart"
+          }
+        },
+        "vanningRrList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030FileRr"
+          }
+        }
+      },
+      "title": "ViewSM030F01VO"
+    },
+    "ViewSM030F02Basic": {
+      "type": "object",
+      "properties": {
+        "destination": {
+          "type": "string"
+        },
+        "eta": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "etd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "portOfDepature": {
+          "type": "string"
+        },
+        "seller": {
+          "type": "string"
+        },
+        "shipmentMode": {
+          "type": "string"
+        },
+        "shipperId": {
+          "type": "string"
+        },
+        "shipperType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "supplierInvoiceNo": {
+          "type": "string"
+        },
+        "vanningNo": {
+          "type": "string"
+        },
+        "vanningReference": {
+          "type": "string"
+        },
+        "vesselName": {
+          "type": "string"
+        }
+      },
+      "title": "ViewSM030F02Basic"
+    },
+    "ViewSM030F02VO": {
+      "type": "object",
+      "properties": {
+        "sm030F02Basic": {
+          "$ref": "#/definitions/ViewSM030F02Basic"
+        },
+        "vanningCaseDetailList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030FileCaseDetail"
+          }
+        },
+        "vanningPartList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030FilePart"
+          }
+        },
+        "vanningRrList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030FileRr"
+          }
+        }
+      },
+      "title": "ViewSM030F02VO"
+    },
+    "ViewSM030FileCaseDetail": {
+      "type": "object",
+      "properties": {
+        "caseDimensionsCasecmH": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "caseDimensionsCasecmL": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "caseDimensionsCasecmW": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "caseNo": {
+          "type": "string"
+        },
+        "caseUom": {
+          "type": "string"
+        },
+        "containerNo": {
+          "type": "string"
+        },
+        "containerType": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "noOfCases": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sealNo": {
+          "type": "string"
+        },
+        "totalGrossWeight": {
+          "type": "number"
+        },
+        "totalM3": {
+          "type": "number"
+        },
+        "totalNetWeight": {
+          "type": "number"
+        },
+        "vanningDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "ViewSM030FileCaseDetail"
+    },
+    "ViewSM030FilePart": {
+      "type": "object",
+      "properties": {
+        "availableQtyForVanning": {
+          "type": "number"
+        },
+        "caseNoPart": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "deliveryLot": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "innerPackingBoxId": {
+          "type": "string"
+        },
+        "netWeightBox": {
+          "type": "number"
+        },
+        "noOfBoxes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderNo": {
+          "type": "string"
+        },
+        "partDescription": {
+          "type": "string"
+        },
+        "qtyBox": {
+          "type": "number"
+        },
+        "totalQty": {
+          "type": "number"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        }
+      },
+      "title": "ViewSM030FilePart"
+    },
+    "ViewSM030FileRr": {
+      "type": "object",
+      "properties": {
+        "caseNoRR": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "returnableMaterial": {
+          "type": "string"
+        }
+      },
+      "title": "ViewSM030FileRr"
+    },
+    "ViewSM030S01ResultVO": {
+      "type": "object",
+      "properties": {
+        "buyer": {
+          "type": "string"
+        },
+        "containerNumber": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "ediFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "etd": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shipmentMode": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "vanningDate": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "vanningId": {
+          "type": "string"
+        },
+        "vanningLocation": {
+          "type": "string"
+        },
+        "vanningReference": {
+          "type": "string"
+        },
+        "vanningType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "ViewSM030S01ResultVO"
+    },
+    "ViewSM030S01SplitDeliveryTag": {
+      "type": "object",
+      "properties": {
+        "parentDeliveryTagId": {
+          "type": "string"
+        },
+        "splitId": {
+          "type": "string"
+        },
+        "splitQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "ViewSM030S01SplitDeliveryTag"
+    },
+    "ViewSM030S02Basic": {
+      "type": "object",
+      "properties": {
+        "buyer": {
+          "type": "string"
+        },
+        "containerNumber": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "eta": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "etd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "importCountry": {
+          "type": "string"
+        },
+        "portofDeparture": {
+          "type": "string"
+        },
+        "seller": {
+          "type": "string"
+        },
+        "shipmentMode": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "supplierInvoiceNumber": {
+          "type": "string"
+        },
+        "vanningLocation": {
+          "type": "string"
+        },
+        "vanningReference": {
+          "type": "string"
+        },
+        "vesselName": {
+          "type": "string"
+        }
+      },
+      "title": "ViewSM030S02Basic"
+    },
+    "ViewSM030S02CaseDetail": {
+      "type": "object",
+      "properties": {
+        "caseNo": {
+          "type": "string"
+        },
+        "caseUom": {
+          "type": "string"
+        },
+        "containerNo": {
+          "type": "string"
+        },
+        "containerType": {
+          "type": "string"
+        },
+        "grossWeight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "listNo": {
+          "type": "string"
+        },
+        "netWeight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "noOfCases": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "perCaseH": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "perCaseL": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "perCaseW": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sealNo": {
+          "type": "string"
+        },
+        "totalM3": {
+          "type": "number",
+          "format": "double"
+        },
+        "vanningDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "ViewSM030S02CaseDetail"
+    },
+    "ViewSM030S02Part": {
+      "type": "object",
+      "properties": {
+        "availableQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "caseNoPart": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "innerPackingBoxId": {
+          "type": "string"
+        },
+        "listNo": {
+          "type": "string"
+        },
+        "netWeightBox": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "noOfBoxes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderNo": {
+          "type": "string"
+        },
+        "partDescription": {
+          "type": "string"
+        },
+        "qtyBox": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        }
+      },
+      "title": "ViewSM030S02Part"
+    },
+    "ViewSM030S02Rr": {
+      "type": "object",
+      "properties": {
+        "caseNoRR": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "listNo": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "returnableMaterialCode": {
+          "type": "string"
+        }
+      },
+      "title": "ViewSM030S02Rr"
+    },
+    "ViewSM030S02VO": {
+      "type": "object",
+      "properties": {
+        "sm030S02Basic": {
+          "$ref": "#/definitions/ViewSM030S02Basic"
+        },
+        "vanningCaseDetailList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S02CaseDetail"
+          }
+        },
+        "vanningPartList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S02Part"
+          }
+        },
+        "vanningRrList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S02Rr"
+          }
+        }
+      },
+      "title": "ViewSM030S02VO"
+    },
+    "ViewSM030S05ResultVO": {
+      "type": "object",
+      "properties": {
+        "buyer": {
+          "type": "string"
+        },
+        "checkBoxDisable": {
+          "type": "boolean"
+        },
+        "contractOrOrderDescription": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "defaultCheckBoxNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isChecked": {
+          "type": "boolean"
+        },
+        "listNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "loginUserLanguageCode": {
+          "type": "string"
+        },
+        "orderNumber": {
+          "type": "string"
+        },
+        "partDescription": {
+          "type": "string"
+        },
+        "pendingVanningCustomerId": {
+          "type": "string"
+        },
+        "pendingVanningDetailId": {
+          "type": "string"
+        },
+        "pendingVanningId": {
+          "type": "string"
+        },
+        "shipper": {
+          "type": "string"
+        },
+        "sm030S05VOSonList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewSM030S05ResultVO"
+          }
+        },
+        "ttcOfficeId": {
+          "type": "string"
+        },
+        "vanningPartDetailId": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        }
+      },
+      "title": "ViewSM030S05ResultVO"
+    },
+    "ViewWM030F01RowItem": {
+      "type": "object",
+      "properties": {
+        "backNo": {
+          "type": "string"
+        },
+        "buyer": {
+          "type": "string"
+        },
+        "contractNumber": {
+          "type": "string"
+        },
+        "contractOrderDescription": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "customerGroup": {
+          "type": "string"
+        },
+        "customerOrderNumber": {
+          "type": "string"
+        },
+        "customerPartDescription": {
+          "type": "string"
+        },
+        "customerPartNumber": {
+          "type": "string"
+        },
+        "deliveryRun": {
+          "type": "string"
+        },
+        "deliveryTagNumber": {
+          "type": "string"
+        },
+        "deliveryTo": {
+          "type": "string"
+        },
+        "expCountry": {
+          "type": "string"
+        },
+        "expCountryCode": {
+          "type": "string"
+        },
+        "expPONumber": {
+          "type": "string"
+        },
+        "impCountry": {
+          "type": "string"
+        },
+        "impCountryCode": {
+          "type": "string"
+        },
+        "inboundDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "inboundReference": {
+          "type": "string"
+        },
+        "inboundRun": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "oemPlant": {
+          "type": "string"
+        },
+        "qtyBox": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "string"
+        },
+        "statusCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "supplier": {
+          "type": "string"
+        },
+        "supplierGroup": {
+          "type": "string"
+        },
+        "supplierOrderReference": {
+          "type": "string"
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "supplierPartNumber": {
+          "type": "string"
+        },
+        "supplierPlant": {
+          "type": "string"
+        },
+        "unitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "warehouse": {
+          "type": "string"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        }
+      },
+      "title": "ViewWM030F01RowItem"
+    },
+    "ViewWM030F02BasicRowItem": {
+      "type": "object",
+      "properties": {
+        "inboundReference": {
+          "type": "string"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "warehouse": {
+          "type": "string"
+        }
+      },
+      "title": "ViewWM030F02BasicRowItem"
+    },
+    "ViewWM030F02ResultVO": {
+      "type": "object",
+      "properties": {
+        "dataList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030F02RowItem"
+          }
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "viewWM030F02BasicRowItem": {
+          "$ref": "#/definitions/ViewWM030F02BasicRowItem"
+        }
+      },
+      "title": "ViewWM030F02ResultVO"
+    },
+    "ViewWM030F02RowItem": {
+      "type": "object",
+      "properties": {
+        "custOrderNumber": {
+          "type": "string"
+        },
+        "deliveryRun": {
+          "type": "string"
+        },
+        "deliveryTagNumber": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "expInboundActualId": {
+          "type": "string"
+        },
+        "expInboundCustomerDetailId": {
+          "type": "string"
+        },
+        "expInboundPlanDetailId": {
+          "type": "string"
+        },
+        "expPONumber": {
+          "type": "string"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "planInboundDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "supplier": {
+          "type": "string"
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "totalQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        }
+      },
+      "title": "ViewWM030F02RowItem"
+    },
+    "ViewWM030F03ResultVO": {
+      "type": "object",
+      "properties": {
+        "dataList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030F03RowItem"
+          }
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "viewWM030F02BasicRowItem": {
+          "$ref": "#/definitions/ViewWM030F02BasicRowItem"
+        }
+      },
+      "title": "ViewWM030F03ResultVO"
+    },
+    "ViewWM030F03RowItem": {
+      "type": "object",
+      "properties": {
+        "balanceOrderQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "custOrderNumber": {
+          "type": "string"
+        },
+        "deliveryRun": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "expInboundActualId": {
+          "type": "string"
+        },
+        "expInboundCustomerDetailId": {
+          "type": "string"
+        },
+        "expInboundPlanDetailId": {
+          "type": "string"
+        },
+        "expPONumber": {
+          "type": "string"
+        },
+        "inboundDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "noOfBox": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qtyBox": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "supplier": {
+          "type": "string"
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "totalQty": {
+          "type": "number"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        }
+      },
+      "title": "ViewWM030F03RowItem"
+    },
+    "ViewWM030F04RowItem": {
+      "type": "object",
+      "properties": {
+        "actualDeliveryRun": {
+          "type": "string"
+        },
+        "actualInboundDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "actualInboundDateStr": {
+          "type": "string"
+        },
+        "buyer": {
+          "type": "string"
+        },
+        "contractNumber": {
+          "type": "string"
+        },
+        "contractOrderDescription": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "customerOrderNumber": {
+          "type": "string"
+        },
+        "deliveryRun": {
+          "type": "string"
+        },
+        "deliveryStatus": {
+          "type": "string"
+        },
+        "deliveryStatusCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deliveryTagNumber": {
+          "type": "string"
+        },
+        "deliveryTo": {
+          "type": "string"
+        },
+        "diff": {
+          "type": "string"
+        },
+        "expPONumber": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "planInboundDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "planInboundDateStr": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "supplier": {
+          "type": "string"
+        },
+        "supplierOrderReference": {
+          "type": "string"
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "supplierPartNumber": {
+          "type": "string"
+        },
+        "supplierPlant": {
+          "type": "string"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        }
+      },
+      "title": "ViewWM030F04RowItem"
+    },
+    "ViewWM030S03ResultVO": {
+      "type": "object",
+      "properties": {
+        "draftPathId": {
+          "type": "string"
+        },
+        "expInboundActualId": {
+          "type": "string"
+        },
+        "inboundReference": {
+          "type": "string"
+        },
+        "inboundType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "uploadFlg": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "warehouse": {
+          "type": "string"
+        },
+        "warehouseCode": {
+          "type": "string"
+        }
+      },
+      "title": "ViewWM030S03ResultVO"
+    },
+    "ViewWM030S05ResultVO": {
+      "type": "object",
+      "properties": {
+        "checkBoxDisable": {
+          "type": "boolean"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewWM030S05ResultVO"
+          }
+        },
+        "customerOrderNumber": {
+          "type": "string"
+        },
+        "defaultCheckBox": {
+          "type": "boolean"
+        },
+        "defaultCheckBoxNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "editableFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "expInboundActualId": {
+          "type": "string"
+        },
+        "expInboundCustomerDetailId": {
+          "type": "string"
+        },
+        "expInboundPlanDetailId": {
+          "type": "string"
+        },
+        "expInboundPlanId": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "listNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "loginUserLanguageCode": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "string"
+        },
+        "partDescription": {
+          "type": "string"
+        },
+        "poNumber": {
+          "type": "string"
+        },
+        "supplier": {
+          "type": "string"
+        },
+        "supplierPartNumber": {
+          "type": "string"
+        },
+        "ttcOfficeId": {
+          "type": "string"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        }
+      },
+      "title": "ViewWM030S05ResultVO"
+    },
+    "ViewWM030S10RowItem": {
+      "type": "object",
+      "properties": {
+        "actualInboundDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "commonEdiQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractOrOrderDescription": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "customerOrderNumber": {
+          "type": "string"
+        },
+        "deliveryRun": {
+          "type": "string"
+        },
+        "diff": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "exportPoNumber": {
+          "type": "string"
+        },
+        "inboundReference": {
+          "type": "string"
+        },
+        "indexNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string"
+        },
+        "supplier": {
+          "type": "string"
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "supplierPartNumber": {
+          "type": "string"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "warehouse": {
+          "type": "string"
+        },
+        "wisePartNumber": {
+          "type": "string"
+        },
+        "wiseQty": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "ViewWM030S10RowItem"
+    },
+    "WmExpInboundActualDetailExt": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "customerOrderNo": {
+          "type": "string"
+        },
+        "dateFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deliveryLot": {
+          "type": "number"
+        },
+        "deliveryTagId": {
+          "type": "string"
+        },
+        "deliveryTagNumber": {
+          "type": "string"
+        },
+        "editableDeliveryQtyFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "errorMassage": {
+          "type": "string"
+        },
+        "expInboundActualDetailId": {
+          "type": "string"
+        },
+        "expInboundActualId": {
+          "type": "string"
+        },
+        "expInboundCustomerDetailId": {
+          "type": "string"
+        },
+        "expInboundPlanDetailId": {
+          "type": "string"
+        },
+        "expInboundPlanId": {
+          "type": "string"
+        },
+        "fieldMap": {
+          "type": "object"
+        },
+        "inBoundPendingQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "inboundActualDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "inboundDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "inboundPlanDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isDelete": {
+          "type": "boolean"
+        },
+        "isInsert": {
+          "type": "boolean"
+        },
+        "isUpdate": {
+          "type": "boolean"
+        },
+        "keyColumn": {
+          "type": "string"
+        },
+        "noOfBox": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "noOfRunPerDay": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderType": {
+          "type": "string"
+        },
+        "purchaseOrderNo": {
+          "type": "string"
+        },
+        "runNo": {
+          "type": "string"
+        },
+        "supplier": {
+          "type": "string"
+        },
+        "supplierId": {
+          "type": "string"
+        },
+        "supplierName": {
+          "type": "string"
+        },
+        "supplierPartBackNo": {
+          "type": "string"
+        },
+        "supplierPartDescription": {
+          "type": "string"
+        },
+        "supplierPartNo": {
+          "type": "string"
+        },
+        "totalQty": {
+          "type": "number"
+        },
+        "unitPrice": {
+          "type": "number"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        },
+        "wisePartNo": {
+          "type": "string"
+        }
+      },
+      "title": "WmExpInboundActualDetailExt"
+    }
+  }
+}

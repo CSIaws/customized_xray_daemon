@@ -1,0 +1,330 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API document of WisE Notification Domain",
+    "version": "0.0.3",
+    "title": "WisE Notification Domain API"
+  },
+  "host": "localhost:9021",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "send-email-cmd-endpoint",
+      "description": "Send Email CMD Endpoint"
+    },
+    {
+      "name": "status-query-endpoint",
+      "description": "Status Query Endpoint"
+    }
+  ],
+  "paths": {
+    "/m_mail/send_html_mail": {
+      "post": {
+        "tags": [
+          "send-email-cmd-endpoint"
+        ],
+        "summary": "sendHtmlMal",
+        "operationId": "sendHtmlMalUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "sendEmailInfo",
+            "description": "sendEmailInfo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Email"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfobject"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/status/{transactionKey}": {
+      "get": {
+        "tags": [
+          "status-query-endpoint"
+        ],
+        "summary": "Query global transaction status by key",
+        "operationId": "findByTransactionKeyUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "transactionKey",
+            "in": "path",
+            "description": "transactionKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataWrapperOfStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "DataWrapperOfStatus": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Status"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfStatus"
+    },
+    "DataWrapperOfobject": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object"
+        },
+        "message": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataWrapperOfobject"
+    },
+    "Email": {
+      "type": "object",
+      "properties": {
+        "mailCode": {
+          "type": "string",
+          "enum": [
+            "MC01",
+            "MC02",
+            "MC03",
+            "MC04",
+            "MC05",
+            "MC06",
+            "MC07",
+            "MC08",
+            "MC09",
+            "MC10",
+            "MC11",
+            "MC12",
+            "MC13",
+            "MC14",
+            "MC15",
+            "MC16",
+            "MC17",
+            "MC18",
+            "MC19",
+            "MC20",
+            "MC21",
+            "MC22",
+            "MC23",
+            "MC24",
+            "MC25",
+            "MC26",
+            "MC27",
+            "MC28",
+            "MC29",
+            "MC30",
+            "MC31",
+            "MC32",
+            "MC33",
+            "MC34",
+            "MC35",
+            "MC36",
+            "MC37",
+            "MC38",
+            "MC39",
+            "MC40",
+            "MC41",
+            "MC42",
+            "MC43",
+            "MC44",
+            "MC45",
+            "MC46",
+            "MC47",
+            "MC48",
+            "MC49",
+            "MC50",
+            "MC51",
+            "MC52",
+            "MC53",
+            "MC54",
+            "MC55",
+            "MC56",
+            "MC57",
+            "MC58",
+            "MC59",
+            "MC60",
+            "MC61",
+            "MC62",
+            "MC63",
+            "MC64",
+            "MC65",
+            "MC66",
+            "MC67",
+            "MC68",
+            "MC69",
+            "MC70",
+            "MC71",
+            "MC72",
+            "MC73",
+            "MC74",
+            "MC75",
+            "MC76",
+            "MC77"
+          ]
+        },
+        "senderId": {
+          "type": "string"
+        },
+        "subjectParas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "templatePara": {
+          "type": "object"
+        },
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Email"
+    },
+    "ResultCode": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "serviceNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "variables": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "ResultCode"
+    },
+    "Status": {
+      "type": "object",
+      "properties": {
+        "completed": {
+          "type": "boolean"
+        },
+        "failed": {
+          "type": "boolean"
+        },
+        "failureCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "initialVersion": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maskCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "resultCode": {
+          "$ref": "#/definitions/ResultCode"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "SUCCESS",
+            "FAILURE_COMPLETED",
+            "FAILURE",
+            "UNCOMPLETED",
+            "INVALID"
+          ]
+        },
+        "succeeded": {
+          "type": "boolean"
+        },
+        "successCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timeStamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "transactionKey": {
+          "type": "string"
+        },
+        "transactionMaskCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "versionValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "Status"
+    }
+  }
+}
